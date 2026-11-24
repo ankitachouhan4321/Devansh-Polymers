@@ -2,6 +2,42 @@ import React from 'react'
 
 import About from '../components/About'
 
+import {
+    MapPin,
+    CalendarDays,
+    Factory,
+    Boxes,
+    ShieldCheck,
+    Users,
+} from "lucide-react";
+
+const stripData = [
+    {
+        icon: <CalendarDays size={19} />,
+        text: "Established in 2010",
+    },
+    {
+        icon: <Factory size={19} />,
+        text: "Manufacturer & Supplier",
+    },
+    {
+        icon: <Boxes size={19} />,
+        text: "PP & ABS Plastic Granules",
+    },
+    {
+        icon: <MapPin size={19} />,
+        text: "Based in Delhi, India",
+    },
+    {
+        icon: <ShieldCheck size={19} />,
+        text: "Trusted Quality & Reliable Supply",
+    },
+    {
+        icon: <Users size={19} />,
+        text: "Customer-Focused Approach",
+    },
+];
+
 const Home = () => {
   return (
     <>
@@ -43,9 +79,41 @@ const Home = () => {
           </section>
           {/* hero end */}
 
+          {/* strip start */}
+          <section className="dp-top-strip">
+              <div className="dp-strip-track">
+
+                  {[0, 1].map((group) => (
+                      <div
+                          className="dp-strip-group"
+                          key={group}
+                          aria-hidden={group === 1}
+                      >
+                          {stripData.map((item, index) => (
+                              <div className="dp-strip-item" key={index}>
+                                  <span className="dp-strip-icon">
+                                      {item.icon}
+                                  </span>
+
+                                  <span className="dp-strip-text">
+                                      {item.text}
+                                  </span>
+                              </div>
+                          ))}
+                      </div>
+                  ))}
+
+              </div>
+          </section>
+          {/* strip end */}
+      
           {/* about start */}
           <About/>
           {/* about end */}
+
+         
+
+         
     </>
   )
 }
